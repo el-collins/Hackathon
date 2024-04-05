@@ -9,7 +9,6 @@ game_locations = {
         "description": "An ancient castle standing tall amidst the mountains.",
         "items": ["crown", "robe"]
     },
-    # Add more locations as needed
 }
 
 def add_item_to_inventory(item_name: str):
