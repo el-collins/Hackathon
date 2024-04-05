@@ -1,5 +1,6 @@
 from http.client import HTTPException
 from typing import Annotated
+from Custom_Calculator.models import InterestRequest, PalindromeRequest
 from fastapi import APIRouter, Query
 
 router = APIRouter()
@@ -104,3 +105,13 @@ async def factorial(number:int):
         for i in range(1, number+1):
             factorial *= i
         return factorial
+    
+@app.get("/interest")
+def calculate_interest(interest_request: InterestRequest):
+    interest = (interest_request.principal * interest_request.rate * interest_request.time) / 100
+    return {"Simple Interest": interest}
+
+
+@router.get("/palindrome")
+def check_palindrome(palindrome_request: PalindromeRequest):
+    return {"Is Palindrome": palindrome_request.text == palindrome_request.text[::-1]}
