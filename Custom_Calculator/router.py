@@ -106,7 +106,7 @@ async def factorial(number:int):
             factorial *= i
         return factorial
     
-@app.get("/interest")
+@router.get("/interest")
 def calculate_interest(interest_request: InterestRequest):
     interest = (interest_request.principal * interest_request.rate * interest_request.time) / 100
     return {"Simple Interest": interest}
